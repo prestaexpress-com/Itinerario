@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerario de Mantenimiento - Septiembre 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff7f00 0%, #ff9933 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff7f00, #ff9933);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff7f00, #ff9933);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(255, 127, 0, 0.1);
+            border-left: 5px solid #ff7f00;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 35px rgba(255, 127, 0, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background: #ff7f00;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #ff7f00;
+        }
+
+        .date {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff7f00;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #ff7f00, #ff9933);
+            color: white;
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .activities {
+            list-style: none;
+        }
+
+        .activities li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .activities li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff7f00;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .return-day {
+            background: linear-gradient(135deg, #ff7f00, #ff9933);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding: 20px 15px;
+            }
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Itinerario de Mantenimiento</h1>
+            <p>Programa de visitas a agencias - Septiembre 2025</p>
+        </div>
+
+        <div class="content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">
+                        <span>🗓️</span> Martes 9 de Septiembre
+                    </div>
+                    <div class="location">📍 4 Caminos - Mazatenango</div>
+                    <ul class="activities">
+                        <li>Mantenimiento de cómputo en ambas agencias</li>
+                        <li>Solución de inconveniente con WiFi en 4 Caminos</li>
+                        <li>Reemplazo de POE</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">
+                        <span>🗓️</span> Miércoles 10 de Septiembre
+                    </div>
+                    <div class="location">📍 Escuintla</div>
+                    <ul class="activities">
+                        <li>Mantenimiento de cómputo</li>
+                        <li>Cambio de transformador para las cámaras</li>
+                    </ul>
+                    <div class="return-day">🏢 Día de regreso a oficina</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">
+                        <span>🗓️</span> Viernes 12 de Septiembre
+                    </div>
+                    <div class="location">📍 Petén</div>
+                    <ul class="activities">
+                        <li>Mantenimiento de cómputo</li>
+                        <li>Solución de inconveniente con WiFi</li>
+                        <li>Reemplazo de POE</li>
+                        <li>Corrección de posición de cámaras</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">
+                        <span>🗓️</span> Miércoles 17 de Septiembre
+                    </div>
+                    <div class="location">📍 Cobán</div>
+                    <ul class="activities">
+                        <li>Mantenimiento de cómputo</li>
+                        <li>Corrección de posición de cámaras</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">
+                        <span>🗓️</span> Jueves 18 de Septiembre
+                    </div>
+                    <div class="return-day">🏢 Día de regreso a oficina</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Itinerario generado para el departamento de mantenimiento técnico</p>
+        </div>
+    </div>
+</body>
+</html>
